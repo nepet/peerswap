@@ -214,7 +214,7 @@ setup_alias() {
   LNCLI='lncli'
   for i in $(seq $node_count); do
     # shellcheck disable=SC2139 disable=SC2086
-    alias l$i-cli="$LCLI --lightning-dir=/tmp/l$i-$network"
+    alias l$i-cli="$LCLI --lightning-dir=\"/tmp/l$i-$network\""
     # shellcheck disable=SC2139 disable=SC2086
     alias l$i-log="less /tmp/l$i-$network/log"
     alias l$i-follow="tail -f /tmp/l$i-$network/log"
@@ -222,7 +222,7 @@ setup_alias() {
   done
   for i in $(seq 3); do
     rpcport=$((10101 + i * 100))
-    alias lncli-$i="$LNCLI --lnddir=/tmp/lnd-regtest-$i --network regtest --rpcserver=localhost:$rpcport"
+    alias lncli-$i="$LNCLI --lnddir=\"/tmp/lnd-regtest-$i\" --network regtest --rpcserver=localhost:$rpcport"
     alias lnd-$i-logs="tail -f /tmp/lnd-regtest-$i/logs/bitcoin/regtest/lnd.log"
   done
   # Give a hint.
