@@ -31,7 +31,7 @@ func NewRedundantMessenger(messenger Messenger, retryTime time.Duration) *Redund
 }
 
 func (s *RedundantMessenger) SendMessage(peerId string, message []byte, messageType int) error {
-	log.Debugf("[RedundantSender]\tstart sending messages of type %d to %s\n", messageType, peerId)
+	log.Debugf("[RedundantSender] start sending messages of type %d to %s", messageType, peerId)
 
 	// Send one time before we go loop the send, so that we do not have to wait for the ticker.
 	err := s.messenger.SendMessage(peerId, message, messageType)
