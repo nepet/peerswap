@@ -128,6 +128,8 @@ func GetClientConnection(ctx context.Context, cfg *peerswaplnd.LndConfig) (*grpc
 			unaryRetryOptions...,
 		)),
 	}
+
+	log.Infof("Connecting to lnd on %s", cfg.LndHost)
 	conn, err := grpc.DialContext(ctx, cfg.LndHost, opts...)
 	if err != nil {
 		return nil, err
