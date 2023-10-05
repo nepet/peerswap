@@ -37,7 +37,7 @@ func NewCLightningNode(testDir string, bitcoin *BitcoinNode, id int) (*CLightnin
 		return nil, fmt.Errorf("GenerateRandomString(5) %w", err)
 	}
 
-	dataDir := filepath.Join(testDir, fmt.Sprintf("clightning-%s", rngDirExtension))
+	dataDir := filepath.Join(testDir, fmt.Sprintf("cln-%s", rngDirExtension))
 	networkDir := filepath.Join(dataDir, "regtest")
 
 	err = os.MkdirAll(networkDir, os.ModeDir|os.ModePerm)

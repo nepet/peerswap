@@ -81,7 +81,7 @@ func clnclnSetupWithConfig(t *testing.T, fundAmt uint64, clnConf []string) (*tes
 		)
 
 		// Use lightningd with dev flags enabled
-		lightningd.WithCmd("lightningd-dev")
+		lightningd.WithCmd(os.Getenv("LIGHTNINGD_DEV"))
 
 		// Add plugin to cmd line options
 		lightningd.AppendCmdLine(append([]string{fmt.Sprint("--plugin=", pathToPlugin)}, clnConf...))
